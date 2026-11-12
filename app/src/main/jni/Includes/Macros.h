@@ -26,12 +26,12 @@
 #define READ_FLOAT(addr)   (*(volatile float*)(addr))
 #define READ_DOUBLE(addr)  (*(volatile double*)(addr))
 
-#define WRITE_BYTE(addr, val)   Utils::WriteMemory((void*)(addr), (void*)&(val), 1)
-#define WRITE_WORD(addr, val)   Utils::WriteMemory((void*)(addr), (void*)&(val), 2)
-#define WRITE_DWORD(addr, val)  Utils::WriteMemory((void*)(addr), (void*)&(val), 4)
-#define WRITE_QWORD(addr, val)  Utils::WriteMemory((void*)(addr), (void*)&(val), 8)
-#define WRITE_FLOAT(addr, val)  Utils::WriteMemory((void*)(addr), (void*)&(val), 4)
-#define WRITE_DOUBLE(addr, val) Utils::WriteMemory((void*)(addr), (void*)&(val), 8)
+#define WRITE_BYTE(addr, val)   do { uint8_t v = (val); Utils::WriteMemory((void*)(addr), &v, 1); } while(0)
+#define WRITE_WORD(addr, val)   do { uint16_t v = (val); Utils::WriteMemory((void*)(addr), &v, 2); } while(0)
+#define WRITE_DWORD(addr, val)  do { uint32_t v = (val); Utils::WriteMemory((void*)(addr), &v, 4); } while(0)
+#define WRITE_QWORD(addr, val)  do { uint64_t v = (val); Utils::WriteMemory((void*)(addr), &v, 8); } while(0)
+#define WRITE_FLOAT(addr, val)  do { float v = (val); Utils::WriteMemory((void*)(addr), &v, 4); } while(0)
+#define WRITE_DOUBLE(addr, val) do { double v = (val); Utils::WriteMemory((void*)(addr), &v, 8); } while(0)
 
 // NOP patch
 #define NOP_PATCH(addr, count) do { \
