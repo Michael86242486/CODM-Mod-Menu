@@ -23,11 +23,15 @@
 #define READ_WORD(addr)    (*(volatile uint16_t*)(addr))
 #define READ_DWORD(addr)   (*(volatile uint32_t*)(addr))
 #define READ_QWORD(addr)   (*(volatile uint64_t*)(addr))
+#define READ_FLOAT(addr)   (*(volatile float*)(addr))
+#define READ_DOUBLE(addr)  (*(volatile double*)(addr))
 
 #define WRITE_BYTE(addr, val)   Utils::WriteMemory((void*)(addr), (void*)&(val), 1)
 #define WRITE_WORD(addr, val)   Utils::WriteMemory((void*)(addr), (void*)&(val), 2)
 #define WRITE_DWORD(addr, val)  Utils::WriteMemory((void*)(addr), (void*)&(val), 4)
 #define WRITE_QWORD(addr, val)  Utils::WriteMemory((void*)(addr), (void*)&(val), 8)
+#define WRITE_FLOAT(addr, val)  Utils::WriteMemory((void*)(addr), (void*)&(val), 4)
+#define WRITE_DOUBLE(addr, val) Utils::WriteMemory((void*)(addr), (void*)&(val), 8)
 
 // NOP patch
 #define NOP_PATCH(addr, count) do { \
