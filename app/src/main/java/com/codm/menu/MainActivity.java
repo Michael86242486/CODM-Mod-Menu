@@ -8,14 +8,18 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-    static {
-        System.loadLibrary("Menu");
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        try {
+            System.loadLibrary("Menu");
+        } catch (UnsatisfiedLinkError e) {
+            Toast.makeText(this, "Native library failed to load", Toast.LENGTH_LONG).show();
+            finish();
+            return;
+        }
 
         if (Settings.canDrawOverlays(this)) {
             startService(new Intent(this, MenuService.class));
