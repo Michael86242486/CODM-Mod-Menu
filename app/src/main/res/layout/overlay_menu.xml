@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <!-- Floating icon / handle -->
+    <ImageView
+        android:id="@+id/dragHandle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@android:drawable/ic_menu_manage"
+        android:padding="8dp"
+        android:background="#CC222222" />
+
+    <!-- Menu panel (initially hidden, shown on double-tap) -->
+    <LinearLayout
+        android:id="@+id/menuPanel"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#DD1A1A2E"
+        android:padding="10dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CODM MOD MENU"
+            android:textColor="#FFD700"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="8dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#FFD700" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_aimbot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aimbot"
+            android:textColor="#FFFFFF" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_esp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ESP"
+            android:textColor="#FFFFFF" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_wallhack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wallhack"
+            android:textColor="#FFFFFF" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_no_recoil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No Recoil"
+            android:textColor="#FFFFFF" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_no_spread"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No Spread"
+            android:textColor="#FFFFFF" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_magic_bullet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Magic Bullet"
+            android:textColor="#FFFFFF" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_radar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Radar Hack"
+            android:textColor="#FFFFFF" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_speedhack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Speed Hack"
+            android:textColor="#FFFFFF" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_god_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="God Mode"
+            android:textColor="#FFFFFF" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_unlimited_ammo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Unlimited Ammo"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+</LinearLayout>
