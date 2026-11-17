@@ -1,9 +1,0 @@
-[arm64-v8a] Compile++      : Menu <= Main.cpp
-[arm64-v8a] Compile++      : Menu <= Menu.cpp
-[arm64-v8a] Compile++      : Menu <= Jni.cpp
-[arm64-v8a] Compile++      : Menu <= ESP.cpp
-[arm64-v8a] Compile++      : Menu <= Aimbot.cpp
-[arm64-v8a] Compile++      : Menu <= Memory.cpp
-[arm64-v8a] Compile        : Menu <= dummy.c
-[arm64-v8a] Prebuilt       : libc++_shared.so <= <NDK>/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/aarch64-linux-android/
-[arm64-v8a] SharedLibrary  : libMenu.so

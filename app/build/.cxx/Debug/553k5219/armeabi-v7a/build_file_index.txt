@@ -1,2 +1,0 @@
-C:\Users\HP\Documents\CODM-Mod-Menu\CODM-Mod-Menu\app\src\main\jni\Android.mk
-C:\Users\HP\Documents\CODM-Mod-Menu\CODM-Mod-Menu\app\src\main\jni\Application.mk

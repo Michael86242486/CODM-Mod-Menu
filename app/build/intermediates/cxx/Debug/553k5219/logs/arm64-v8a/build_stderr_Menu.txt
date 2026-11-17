@@ -1,4 +1,0 @@
-C:/Users/HP/Documents/CODM-Mod-Menu/CODM-Mod-Menu/app/src/main/jni/Hacks/Memory.cpp:111:20: warning: unused variable 'targetPos' [-Wunused-variable]
-            float* targetPos = (float*)(closestTarget + Offsets::POSITION_OFFSET);
-                   ^
-1 warning generated.

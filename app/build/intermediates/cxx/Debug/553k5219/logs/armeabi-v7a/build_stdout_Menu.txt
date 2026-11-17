@@ -1,9 +1,0 @@
-[armeabi-v7a] Compile++ thumb: Menu <= Main.cpp
-[armeabi-v7a] Compile++ thumb: Menu <= Menu.cpp
-[armeabi-v7a] Compile++ thumb: Menu <= Jni.cpp
-[armeabi-v7a] Compile++ thumb: Menu <= ESP.cpp
-[armeabi-v7a] Compile++ thumb: Menu <= Aimbot.cpp
-[armeabi-v7a] Compile++ thumb: Menu <= Memory.cpp
-[armeabi-v7a] Compile thumb  : Menu <= dummy.c
-[armeabi-v7a] Prebuilt       : libc++_shared.so <= <NDK>/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/
-[armeabi-v7a] SharedLibrary  : libMenu.so

@@ -1,0 +1,10 @@
+.gradle/
+build/
+app/build/
+.cxx/
+app/.cxx/
+*.apk
+*.aar
+*.jar
+.idea/
+*.iml
