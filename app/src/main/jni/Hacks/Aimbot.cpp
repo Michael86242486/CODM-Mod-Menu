@@ -64,8 +64,8 @@ namespace Aimbot {
 
             // Aim angles (yaw, pitch)
             float targetAngles[2];
-            targetAngles[0] = atan2f(dy, dx) * 180.0f / M_PI;   // yaw
-            targetAngles[1] = atan2f(-dz, distance) * 180.0f / M_PI; // pitch
+            targetAngles[0] = atan2f(dy, dx) * 180.0f / (float)M_PI;   // yaw
+            targetAngles[1] = atan2f(-dz, distance) * 180.0f / (float)M_PI; // pitch
 
             float angleDiff = CalculateAngleDiff(viewAngles, targetAngles);
             if (angleDiff > g_AimbotFov) continue;
@@ -74,7 +74,6 @@ namespace Aimbot {
             float* viewMatrix = (float*)(g_Base + Offsets::VIEW_MATRIX);
             int screenW = READ_DWORD(g_Base + Offsets::SCREEN_WIDTH);
             int screenH = READ_DWORD(g_Base + Offsets::SCREEN_HEIGHT);
-            float screen[3];
 
             float w = viewMatrix[12] * pos[0] +
                       viewMatrix[13] * pos[1] +
@@ -92,11 +91,11 @@ namespace Aimbot {
                       viewMatrix[6] * pos[2] +
                       viewMatrix[7];
 
-            screen[0] = (screenW / 2.0f) * (1.0f + x / w);
-            screen[1] = (screenH / 2.0f) * (1.0f - y / w);
+            float screenX = (screenW / 2.0f) * (1.0f + x / w);
+            float screenY = (screenH / 2.0f) * (1.0f - y / w);
 
             targets.push_back({
-                entity, distance, angleDiff, screen[0], screen[1]
+                entity, distance, angleDiff, screenX, screenY
             });
         }
 
@@ -118,8 +117,8 @@ namespace Aimbot {
         float dz = targetPos[2] - localPos[2];
         float dist = sqrtf(dx*dx + dy*dy + dz*dz);
 
-        float targetYaw = atan2f(dy, dx) * 180.0f / M_PI;
-        float targetPitch = atan2f(-dz, dist) * 180.0f / M_PI;
+        float targetYaw = atan2f(dy, dx) * 180.0f / (float)M_PI;
+        float targetPitch = atan2f(-dz, dist) * 180.0f / (float)M_PI;
 
         // Smoothly interpolate
         float smoothFactor = 1.0f / g_AimbotSmooth;

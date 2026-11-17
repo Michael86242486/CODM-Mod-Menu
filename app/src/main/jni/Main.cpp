@@ -14,9 +14,12 @@
 // Global feature toggle array
 bool g_Features[NUM_FEATURES] = { false };
 
+extern "C" {
+
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved) {
+    (void)reserved;
     Utils::gJvm = vm;
-    JNIEnv* env;
+    JNIEnv* env = nullptr;
     vm->GetEnv((void**)&env, JNI_VERSION_1_6);
     Utils::gEnv = env;
 
@@ -59,11 +62,15 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved) {
 }
 
 // Called from Java overlay switches
-extern "C" JNIEXPORT void JNICALL
+JNIEXPORT void JNICALL
 Java_com_codm_menu_OverlayView_NativeToggle(JNIEnv* env, jclass clazz,
                                              jint feature, jboolean enabled) {
+    (void)env;
+    (void)clazz;
     if (feature >= 0 && feature < NUM_FEATURES) {
         g_Features[feature] = enabled;
         LOGI("Feature %d toggled: %s", feature, enabled ? "ON" : "OFF");
     }
 }
+
+} // extern "C"

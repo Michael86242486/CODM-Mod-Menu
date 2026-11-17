@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.IBinder;
+import android.view.ContextThemeWrapper;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -30,8 +31,11 @@ public class MenuService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (overlayView == null) {
-            LayoutInflater inflater = LayoutInflater.from(this);
+            ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(this, R.style.Theme_AppCompat_NoActionBar);
+            LayoutInflater inflater = LayoutInflater.from(contextThemeWrapper);
             overlayView = inflater.inflate(R.layout.overlay_menu, null);
+
+            new OverlayView(this, overlayView);
 
             int flags_l;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -48,7 +52,7 @@ public class MenuService extends Service {
                     PixelFormat.TRANSLUCENT
             );
 
-            params.gravity = Gravity.TOP | Gravity.LEFT;
+            params.gravity = Gravity.TOP | Gravity.START;
             params.x = 0;
             params.y = 100;
 
@@ -83,14 +87,17 @@ public class MenuService extends Service {
                             return true;
 
                         case MotionEvent.ACTION_UP:
+                            v.performClick();
                             if (!isDragging) {
                                 long now = System.currentTimeMillis();
                                 if (now - lastClickTime < 300) {
                                     // Double tap – toggle visibility
                                     View menuPanel = overlayView.findViewById(R.id.menuPanel);
-                                    menuPanel.setVisibility(
-                                            menuPanel.getVisibility() == View.VISIBLE ?
-                                                    View.GONE : View.VISIBLE);
+                                    if (menuPanel != null) {
+                                        menuPanel.setVisibility(
+                                                menuPanel.getVisibility() == View.VISIBLE ?
+                                                        View.GONE : View.VISIBLE);
+                                    }
                                 }
                                 lastClickTime = now;
                             }

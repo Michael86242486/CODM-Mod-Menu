@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.codm.menu.app-debug-31:/layout_activity_main.xml.flat",
+        "source": "com.codm.menu.app-main-33:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.codm.menu.app-debug-31:/layout_overlay_menu.xml.flat",
+        "source": "com.codm.menu.app-main-33:/layout/overlay_menu.xml"
+    }
+]

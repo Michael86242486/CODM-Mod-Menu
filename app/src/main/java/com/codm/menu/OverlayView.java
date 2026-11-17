@@ -1,22 +1,17 @@
 package com.codm.menu;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.Switch;
-import android.widget.TextView;
+import android.widget.CompoundButton;
 
 public class OverlayView {
 
-    private View rootView;
-    private Context context;
+    private final View rootView;
 
     // Native methods
     public static native void NativeToggle(int feature, boolean enabled);
 
     public OverlayView(Context context, View parent) {
-        this.context = context;
         this.rootView = parent;
         initControls();
     }
@@ -37,7 +32,7 @@ public class OverlayView {
         };
 
         for (int i = 0; i < switchIds.length; i++) {
-            Switch sw = rootView.findViewById(switchIds[i]);
+            CompoundButton sw = rootView.findViewById(switchIds[i]);
             if (sw != null) {
                 final int featureIndex = i;
                 sw.setOnCheckedChangeListener((buttonView, isChecked) -> {
