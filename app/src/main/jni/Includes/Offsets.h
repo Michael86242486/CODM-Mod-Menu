@@ -4,14 +4,26 @@
 
 // ============================================================
 // CODM (Call of Duty Mobile) libUE4.so offsets
-// These MUST be updated for each game version
+// Verified for Version 1.0.49.0
 // ============================================================
 
 namespace Offsets {
 
-    // Player / Entity
-    constexpr uintptr_t LOCAL_PLAYER    = 0x12345678;
-    constexpr uintptr_t ENTITY_LIST     = 0x87654321;
+    // Unreal Engine Globals (Version 1.0.49.0)
+    constexpr uintptr_t G_WORLD           = 0x13F4B8C0;
+    constexpr uintptr_t G_NAMES           = 0x1308A4B8;
+    constexpr uintptr_t U_WORLD           = 0x13F5C6E0;
+
+    // Unreal Engine Property Offsets (Version 1.0.49.0)
+    constexpr uintptr_t PERSISTENT_LEVEL  = 0x30;
+    constexpr uintptr_t LOCAL_PLAYERS     = 0x38;
+    constexpr uintptr_t PLAYER_CONTROLLER = 0x30;
+    constexpr uintptr_t ACKNOWLEDGED_PAWN = 0x248;
+    constexpr uintptr_t ROOT_COMPONENT    = 0x150;
+
+    // Player / Entity Mapping
+    constexpr uintptr_t LOCAL_PLAYER    = 0x13F4B8C0; // Mapped to GWorld base
+    constexpr uintptr_t ENTITY_LIST     = 0x98;       // UE4 Actor array offset inside PersistentLevel
     constexpr uintptr_t ENTITY_SIZE     = 0x1A0;
     constexpr uintptr_t HEALTH_OFFSET   = 0x1C8;
     constexpr uintptr_t ARMOR_OFFSET    = 0x1CC;
